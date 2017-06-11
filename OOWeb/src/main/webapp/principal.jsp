@@ -1,17 +1,26 @@
 <%@page import="br.com.munif.ooweb.Lugar"%>
+<%@page import="br.com.munif.ooweb.NPC"%>
 <jsp:useBean class="br.com.munif.ooweb.Jogador" id="jogador" scope="session"/>
 <jsp:useBean class="br.com.munif.ooweb.Mapa" id="mapa" scope="application"/>
+
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     String nome = request.getParameter("nome");
     String movimento = request.getParameter("movimento");
     String mensagem = request.getParameter("mensagem");
+    NPC npc = null ;
     if (nome != null) {
+        npc = new NPC(mapa.getLugarInicialNPC());
+         
         jogador.setNome(nome);
         jogador.setLugar(mapa.getLugarInicialJogador());
+
     }
     Lugar lc = jogador.getLugar();
+   
+ 
     if (mensagem != null && mensagem.trim().length() > 0) {
         lc.getMensagens().add(jogador.getNome() + ":" + mensagem);
     }
@@ -41,7 +50,7 @@
     <body>
         <h1>Olá <%=jogador.getNome()%></h1>
         <%
-lc = jogador.getLugar();
+            lc = jogador.getLugar();
         %>
 
 
@@ -55,7 +64,7 @@ lc = jogador.getLugar();
 
 
         <pre><%
-
+           
             if (lc.getLeste() != null) {
                 out.println("1) Para leste " + lc.getLeste().getDescricao());
             }

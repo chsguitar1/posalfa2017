@@ -5,6 +5,8 @@ public abstract class Personagem implements Descritivel {
     protected String nome;
 
     private Lugar lugar;
+    
+    protected String acao;
 
     public abstract void chora();
 
@@ -15,6 +17,20 @@ public abstract class Personagem implements Descritivel {
         this.nome = nome;
         this.lugar = lugar;
         lugar.getPersonagens().add(this);
+    }
+      public Personagem(String nome, Lugar lugar, String acao) {
+        this.nome = nome;
+        this.lugar = lugar;
+        this.acao = acao;
+        lugar.getPersonagens().add(this);
+    }
+
+    public String getAcao() {
+        return acao;
+    }
+
+    public void setAcao(String acao) {
+        this.acao = acao;
     }
 
     public String getNome() {
