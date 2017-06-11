@@ -12,7 +12,7 @@ public class Jogador extends Personagem {
     }
 
     public String getNome() {
-        return "JOGADOR:"+nome;
+        return "JOGADOR: "+nome;
     }
 
 }

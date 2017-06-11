@@ -6,11 +6,20 @@ public abstract class Personagem implements Descritivel {
 
     private Lugar lugar;
 
+    protected String acao;
+
     public abstract void chora();
 
     public Personagem(String nome, Lugar lugar) {
         this.nome = nome;
         this.lugar = lugar;
+        lugar.getPersonagens().add(this);
+    }
+
+    public Personagem(String nome, Lugar lugar, String acao) {
+        this.nome = nome;
+        this.lugar = lugar;
+        this.acao = acao;
         lugar.getPersonagens().add(this);
     }
 
@@ -30,6 +39,14 @@ public abstract class Personagem implements Descritivel {
         this.lugar.getPersonagens().add(this);
     }
 
+    public String getAcao() {
+        return acao;
+    }
+
+    public void setAcao(String acao) {
+        this.acao = acao;
+    }
+
     @Override
     public String descreve() {
         return "Personagem com nome " + nome + " em " + lugar.getDescricao();
@@ -39,7 +56,5 @@ public abstract class Personagem implements Descritivel {
     public String toString() {
         return nome;
     }
-    
-    
 
 }

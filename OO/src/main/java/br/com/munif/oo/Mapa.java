@@ -20,7 +20,7 @@ public class Mapa {
         Lugar sala = new Lugar("sala");
         Lugar copa = new Lugar("copa");
         Lugar corredor = new Lugar("corredor");
-        Lugar cozinha = new Lugar("cozina");
+        Lugar cozinha = new Lugar("cozinha");
         Lugar quarto = new Lugar("quarto");
         Lugar banheiro = new Lugar("banheiro");
         sala.setSul(copa);
